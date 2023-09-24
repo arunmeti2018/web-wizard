@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pain Scale</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('emojiback.jpg');
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        .scale {
+
+            width: 100vb;
+            height: 100vh;
+            position: absolute;
+            left: 30%;
+            align-items: center;
+            justify-content: center;
+            margin-top: 100px;
+
+
+        }
+
+        <!-- button {
+            outline: none;
+            border: none;
+        } -->
+
+        .button  {
+            border: 1px solid #fff;
+            background-color: tomato;
+            display: inline-block;
+            border-radius: 6px;
+            padding: 12px 24px;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.5s ease;
+            margin-top: 10px;
+            font-size: larger;
+            width: 30%;
+        }
+
+        .button:hover {
+            color: red;
+            background-color: #fff;
+            border: 1px solid red;
+        }
+
+        .pain-scale {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 30px;
+        }
+
+        #range {
+            width: 50%;
+            margin-top: 15px;
+        }
+
+        .emoji {
+            font-size: 3em;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .emoji:hover {
+            transform: scale(1.2);
+        }
+
+        .selected {
+            font-size: 4em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scale">
+        <h1>Feedback</h1>
+
+
+        <div class="pain-scale">
+
+            Very Poor <input type="range" name="range" id="range">Very Good
+        </div>
+
+        <div class="pain-scale">
+
+            <span class="emoji" id="emoji1">😭</span>
+            <span class="emoji" id="emoji2">😖</span>
+            <span class="emoji" id="emoji3">😫</span>
+            <span class="emoji" id="emoji4">😐</span>
+            <span class="emoji" id="emoji5">😀</span>
+        </div>
+        <div class="submit">
+            <a href="loggedhome.html">
+           <input type="button" value="Submit" class="button"  placeholder="Submit" >
+        </a>
+        </div>
+
+    </div>
+
+    <script>
+        const emojis = document.querySelectorAll('.emoji');
+        let selectedEmoji = null;
+
+        emojis.forEach(emoji => {
+            emoji.addEventListener('click', () => {
+                if (selectedEmoji) {
+                    selectedEmoji.classList.remove('selected');
+                }
+                emoji.classList.add('selected');
+                selectedEmoji = emoji;
+            });
+        });
+    </script>
+</body>
+
+</html>

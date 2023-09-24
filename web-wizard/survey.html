@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="survey.css">
+    <title> Survey Form </title>
+</head>
+
+
+<body>
+
+    <h1>Mental Health And Well-being Survey Form</h1>
+    <p class="description">Please take your time to answer the survey question</p>
+
+    <form class="survey-form" action="loggedhome.html">
+        <div class="form-group">
+            <label class="name-label">Name</label>
+            <input type="text" class="form-control" name="Name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label class="email-label">Email</label>
+            <input type="email" class="form-control" name="Email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label class="age-label">Age</label>
+            <input type="number" class="form-control" name="Age" placeholder="Select your age" required min="18"
+                max="100">
+        </div>
+        <div class="form-group">
+            <label for="gender" class="gender-label">Gender</label>
+            <select id="gender" name="Gender" class="form-control" required>
+                <option value disabled selected>Select your gender</option>
+                <option value="">Female</option>
+                <option value="">Male</option>
+                <option value="">Others</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="mobile-label">How Long Do You Use Mobile In Day?</label>
+            <select id="mobile" name="Mobile" class="form-control" required>
+                <option value disabled selected>Select Your Options</option>
+                <option value="">
+                    < 2Hours</option>
+                <option value=""> 2 To 5Hours</option>
+                <option value=""> 5 To 8Hours</option>
+                <option value="">>8Hours</option>
+        </div>
+
+
+
+
+        </div>
+        <div class="form-group">
+            <label for="form-textarea"></label>
+
+            <textarea placeholder=" Describe Your Mental Health..." name="Mental-health" class="form-textarea"
+                required></textarea>
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="form-range" class="range"> How Do You Rate Your Stress Level</label>
+            <input type="range" name="range" class="form-control" class="range">
+        </div>
+        <div class="form-group">
+            <label for="form-range" class="radio"> Have You Experienced insomia :</label>
+            <input type="radio" name="radio" id="radio">Yes
+            <input type="radio" name="radio" id="radio">No
+        </div>
+        <div class="form-group">
+            <label class="form-sleep">How Well Do You Sleep :</label>
+            <input type="text" class="form-control" name="sleep" placeholder="Enter Time In Hours" required min="0"
+                max="24">
+        </div>
+        <div class="form-group">
+            <label for="form-textarea"></label>
+
+            <textarea
+                placeholder=" PTSD (post-traumatic stress disorder) is better recognized these days than in the past. Have you experienced any incident which can lead to PTSD? If Yes Describe... "
+                name="Mental-health" class="form-textarea" required></textarea>
+
+        </div>
+        <div class="form-group">
+            <label for="form-therapy" class="radio"> Would You Like To Try Therapy :</label>
+            <input type="radio" name="radio" id="radio">Yes
+            <input type="radio" name="radio" id="radio">No
+        </div>
+
+
+        <div class="form-group">
+
+            <button type="submit" class="submit-button" onclick="shownotification()"><a>Submit</a></button>
+
+        </div>
+
+    </form>
+</body>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwcW4ZTuaRj4LQW0ciDQSU4gi5RsSqPYCAhtoNEa052nXWYPmZ253508muwMz-mi-HRUw/exec'
+    const form = document.forms['google-sheet']
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+    })
+             function shownotification(){
+                alert("Thank You For Survey We'll Get Back To You Sonn..")
+             }
+</script>
+
+</html>

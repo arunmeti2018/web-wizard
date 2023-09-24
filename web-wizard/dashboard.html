@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+   
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <div class="grid-container">
+
+
+        
+        <main class="main-container">
+            <div class="main-title">
+                <p class="font-weight-bold">DASHBOARD</p>
+                
+            </div>
+
+            <div class="main-cards">
+
+                <div class="card">
+                    <div class="card-inner">
+                        <p class="text-primary">Instagram</p>
+                        
+                    </div>
+                    <span class="text-primary font-weight-bold">5 Hours 10 mins</span>
+                </div>
+                <div class="card">
+                    <div class="card-inner">
+                        <p class="text-primary">Whatsapp</p>
+                        
+                    </div>
+                    <span class="text-primary font-weight-bold">4 hours 2 mins</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <p class="text-primary">Youtube</p>
+
+                    </div>
+                    <span class="text-primary font-weight-bold">3 hours 7 mins</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <p class="text-primary">Sanapchat</p>
+
+                    </div>
+                    <span class="text-primary font-weight-bold">2 hours 6 mins</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <p class="text-primary">Telegram</p>
+
+                    </div>
+                    <span class="text-primary font-weight-bold">1 hour</span>
+                </div>
+
+            </div>
+
+            <div class="charts">
+
+                <div class="charts-card">
+                    <p class="chart-title">Top 5 Apps Image</p>
+                    <div id="bar-chart"></div>
+                </div>
+
+                <div class="charts-card">
+                    <p class="chart-title">Statistics</p>
+                    <div id="area-chart"></div>
+                </div>
+
+            </div>
+        </main>
+
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+
+
+     
+</body>
+<script>
+
+
+    var sidebarOpen = false;
+    var sidebar = document.getElementById("sidebar");
+
+    function openSidebar() {
+        if (!sidebarOpen) {
+            sidebar.classList.add("sidebar-responsive");
+            sidebarOpen = true;
+        }
+    }
+
+    function closeSidebar() {
+        if (sidebarOpen) {
+            sidebar.classList.remove("sidebar-responsive");
+            sidebarOpen = false;
+        }
+    }
+
+
+
+  
+    var barChartOptions = {
+        series: [{
+            data: [5, 4, 3, 2, 1]
+        }],
+        chart: {
+            type: 'bar',
+            height: 350,
+            toolbar: {
+                show: false
+            },
+        },
+        colors: [
+            "#ec24db",
+            "#5df222",
+            "#f80a0a",
+            "#e4f832",
+            "#4382e1"
+        ],
+        plotOptions: {
+            bar: {
+                distributed: true,
+                borderRadius: 4,
+                horizontal: false,
+                columnWidth: '40%',
+            }
+        },
+        dataLabels: {
+            enabled: false
+        },
+        legend: {
+            show: false
+        },
+        xaxis: {
+            categories: ["Instagram", "Whatsapp", "Youtube", "Snapchat", "Telegram"],
+        },
+        yaxis: {
+            title: {
+                text: "Count"
+            }
+        }
+    };
+
+    var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
+    barChart.render();
+
+
+    
+    var areaChartOptions = {
+        series: [{
+            name: 'Months',
+            data: [31, 40, 28, 51, 42, 109, 100]
+        }, {
+            name: 'Screen Time',
+            data: [11, 32, 45, 32, 34, 52, 41]
+        }],
+        chart: {
+            height: 350,
+            type: 'area',
+            toolbar: {
+                show: false,
+            },
+        },
+        colors: ["#4f35a1", "#246dec"],
+        dataLabels: {
+            enabled: false,
+        },
+        stroke: {
+            curve: 'smooth'
+        },
+        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+        markers: {
+            size: 0
+        },
+        yaxis: [
+            {
+                title: {
+                    text: 'No. Of notification per Day',
+                },
+            },
+            {
+                opposite: true,
+                title: {
+                    text: 'Unlocks',
+                },
+            },
+        ],
+        tooltip: {
+            shared: true,
+            intersect: false,
+        }
+    };
+
+    var areaChart = new ApexCharts(document.querySelector("#area-chart"), areaChartOptions);
+    areaChart.render();
+</script>
+
+</html>

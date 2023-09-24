@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400&display=swap');
+
+body{
+    background-color: #262E5F;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+h1{
+    text-align: center;
+    color: #D0D9EA;
+    font-weight: bold;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.description{
+    text-align: center;
+    padding-bottom: 10px;
+    margin: auto;
+    color: #D0D9EA;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.survey-form{
+    background: linear-gradient(90deg, rgba(154, 142, 162, 1), rgba(138, 147, 156, 1));
+    padding: 2.5rem 2.5rem;
+    border-radius: 15px;
+    width: 35%;
+    height: 80%;
+    margin: auto;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.5);
+
+}
+
+label,
+p{
+    margin: 2px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+em{
+    font-size: 11px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+input,
+select,
+button{
+    margin: 2px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 12px;
+}
+
+.form-control{
+    display: block;
+    width: 80%;
+    padding: 0.375rem 0.75rem;
+    color: #262E5F;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid #D0D9EA;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+}
+
+.form-control:hover{
+    box-shadow: 5px 8px 10px rgba(0,0,0,0.25);
+    border: none;
+}
+
+
+
+
+
+.form-textarea{
+    margin-top: 15px;
+    min-height: 75px;
+    width: 85%;
+    padding: 0.625rem;
+    resize: vertical;
+    color: #262E5F;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid #D0D9EA;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    cursor: pointer;
+}
+
+.form-textarea:hover{
+    box-shadow: 5px 8px 10px rgba(0,0,0,0.25);
+    border: none;
+}
+
+.submit-button{
+    width: 90%;
+    padding: 0.5rem;
+    background-color: #9A8EA2;
+    border: 1px solid #D0D9EA;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px 0;
+    color: #262E5F;
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.submit-button:hover{
+    box-shadow: 5px 8px 10px rgba(0,0,0,0.25);
+    color:white;
+    font-size: large;
+    background-color:#262E5F;
+    border: none;
+}
